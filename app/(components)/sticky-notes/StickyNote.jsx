@@ -25,12 +25,12 @@ export default function StickyNote({
             onClick={() => router.push(`/${stickyNote?.id}`)}
         >
             <div className="w-full self-center overflow-hidden">
-                <p className="font-gloriaHallelujah text-xl font-semibold tracking-wide text-center whitespace-nowrap select-none">
+                <p className={`font-gloriaHallelujah ${stickyNoteColor?.textClassName} text-xl font-semibold tracking-wide text-center whitespace-nowrap select-none`}>
                     {stickyNote?.title}
                 </p>
             </div>
             <div className="w-full h-3/5 flex flex-row justify-center items-center">
-                <p className="font-gloriaHallelujah text-md text-center leading-loose select-none">
+                <p className={`font-gloriaHallelujah ${stickyNoteColor?.textClassName} text-md text-center leading-loose select-none`}>
                     {stickyNote?.content}
                 </p>
             </div>

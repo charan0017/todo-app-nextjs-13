@@ -21,7 +21,14 @@ export default function CreateStickyNode({
     const isCreate = !stickyNote?.id;
 
     function setSelectedColor(color) {
-        dispatch(changeDefaultCardColor(color));
+        if (isCreate) {
+            dispatch(changeDefaultCardColor(color));
+        } else {
+            dispatch(updateStickyNote({
+                ...stickyNote,
+                colorId: color.id,
+            }));
+        }
     }
 
     const [title, setTitle] = useState(stickyNote?.title || '');
@@ -52,8 +59,8 @@ export default function CreateStickyNode({
     }
 
     useEffect(() => {
-        setColorId(selectedColor.id);
-    }, [selectedColor]);
+        setColorId(isCreate ? selectedColor.id : stickyNote?.colorId);
+    }, [isCreate, selectedColor, stickyNote?.colorId]);
 
     return (
         <div
