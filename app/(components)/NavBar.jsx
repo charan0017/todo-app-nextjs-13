@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import withRedux from '../../hoc/withRedux';
 import { changeDefaultBackgroundColor } from '../../redux/actions';
 
 import Color from './Color';
@@ -78,4 +77,4 @@ function NavBar({ children }) {
     )
 }
 
-export default withRedux(NavBar);
+export default NavBar;
